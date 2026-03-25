@@ -1,115 +1,168 @@
-# PROJET PARKING AUTOMATISÉ : GUIDE COMPLET 
-# Un projet mené par Youness BEN SBEH, en CPI2 (ISTY)
+# Parking Automatisé avec Arduino
 
-## 1. Description du Système
+## Auteur
+Projet réalisé par Youness BEN SBEH – CPI2 (ISTY)
 
-Ce projet réalise une **barrière de parking automatique** basée sur **Arduino Uno R3**.
+---
 
-### Fonctions principales
-- **Entrée sécurisée** par **badge RFID** avec vérification d’un UID autorisé
-- **Retour sonore** via buzzer lors de la lecture et de la validation/refus du badge
-- **Sortie automatique** grâce à un **capteur ultrason**
-- **Radar de "proximité"** avec :
-  - affichage de la distance sur écran LCD
-  - alarme sonore progressive selon la proximité de l’obstacle
-- **Affichage temps réel** sur écran LCD :
-  - état du parking
-  - accès autorisé/refusé
-  - fermeture de la barrière
-  - distance détectée
+## Objectif du projet
 
-## 2. Matériel utilisé
+Concevoir et réaliser un système automatisé de gestion d’accès pour parking, intégrant :
+- un contrôle d’entrée sécurisé (RFID)
+- une sortie automatisée (capteur ultrason)
+- un système de sécurité (détection d’obstacle)
+- une interface utilisateur (écran LCD et buzzer)
+
+Objectif : simuler un système embarqué proche des applications industrielles (automobile, smart parking).
+
+---
+
+## Architecture du système
+
+Le système est composé de trois blocs principaux :
+
+### 1. Gestion d’accès (Entrée)
+- Lecture badge RFID (RC522)
+- Vérification UID autorisé
+- Commande du servomoteur (barrière)
+
+### 2. Gestion de sortie
+- Détection véhicule via HC-SR04
+- Ouverture automatique de la barrière
+
+### 3. Sécurité et interaction
+- Radar de proximité (ultrason)
+- Buzzer (alerte progressive)
+- Affichage LCD en temps réel
+
+---
+
+## Fonctionnement global
+
+1. Lecture du badge RFID
+2. Vérification de l’accès
+3. Ouverture de la barrière si autorisé
+4. Surveillance des obstacles
+5. Fermeture sécurisée
+6. Détection automatique de sortie
+
+---
+
+## Aperçu du système
+
+![Système en fonctionnement](media/systeme_en_fonctionnement.jpeg)
+
+---
+
+## Interface utilisateur
+
+![Interface LCD](media/interface_lcd_parking.jpeg)
+
+---
+
+## Sécurité
+
+![Fermeture barrière](media/alerte_fermeture_barriere.jpeg)
+
+---
+
+## Démonstration
+
+Voir la vidéo : [Lien vidéo](media/Video_Démo_2.mp4)
+
+---
+
+## Matériel utilisé
 
 - Arduino Uno R3
-- Écran LCD Série (C2042A / LCD05)
-- Lecteur RFID RC522 + badge
+- Lecteur RFID RC522
 - Capteur ultrason HC-SR04
-- Servomoteur (HS-422 ou standard)
+- Servomoteur
+- Écran LCD série
 - Buzzer
 - Breadboard
 - Fils de connexion
 
-## 3. Schéma fonctionnel
+---
 
-### Entrée
-Le badge RFID est lu par le module RC522.  
-Si l’UID correspond au badge autorisé :
-- le buzzer joue une confirmation sonore
-- la barrière s’ouvre
-- un message de bienvenue s’affiche
+## Partie électronique (RFID)
 
-Sinon :
-- un message **Accès refusé** s’affiche
-- une alarme sonore est déclenchée
-- la barrière reste fermée
+![Module RFID](media/module_rfid_cablage.jpeg)
 
-### Sortie
-Le capteur HC-SR04 détecte un véhicule à courte distance.  
-Si celui-ci est suffisamment proche :
-- la barrière s’ouvre automatiquement
-- un message de sortie s’affiche
+---
 
-### Sécurité radar de recul
-Si un obstacle est détecté dans la zone de surveillance :
-- la distance est affichée sur l’écran LCD
-- le buzzer émet des bips de plus en plus fréquents selon la distance
+## Câblage
 
-## 4. Câblage
-
-> Utilisez la breadboard pour répartir proprement le 5V et le GND.
+Utiliser la breadboard pour répartir proprement le 5V et le GND.
 
 ### Alimentation générale
-- 5V Arduino → rail rouge (+) de la breadboard
-- GND Arduino → rail bleu (-) de la breadboard
+- 5V Arduino → rail rouge (+)
+- GND Arduino → rail bleu (-)
 
-### A. Écran LCD série
-Connecteur à gauche, du haut vers le bas :
-
+### Écran LCD
 - Pin 1 → 5V
 - Pin 2 → GND
-- Pin 3 (RX) → Pin 1 (TX) de l’Arduino
+- Pin 3 (RX) → Pin 1 (TX) Arduino
 - Pin 4 → non connecté
 
-> Important : débrancher le fil relié à la **Pin 1 (TX)** pendant le téléversement du code.
+Important : débrancher le fil TX pendant le téléversement.
 
-### B. Capteur ultrason HC-SR04
+### Capteur ultrason
 - VCC → 5V
 - GND → GND
 - Trig → Pin 6
 - Echo → Pin 7
 
-### C. Servomoteur
+### Servomoteur
 - Rouge → 5V
-- Noir / Marron → GND
-- Jaune / Orange → Pin 3
+- Noir/Marron → GND
+- Jaune/Orange → Pin 3
 
-### D. Lecteur RFID RC522
-> Le RC522 fonctionne en **3.3V**, jamais sur 5V.
-
-- 3.3V → 3.3V Arduino
+### RFID RC522 (3.3V obligatoire)
+- 3.3V → Arduino
 - RST → Pin 9
 - GND → GND
 - MISO → Pin 12
 - MOSI → Pin 11
 - SCK → Pin 13
-- SDA (SS) → Pin 10
+- SDA → Pin 10
 
-### E. Buzzer
-- Patte + / fil rouge → Pin 4
-- Patte - / fil noir → GND
+### Buzzer
+- + → Pin 4
+- - → GND
 
-### F. Images
-![Montage](media/systeme_en_fonctionnement.jpeg)
-![Montage](media/alerte_fermeture_barriere.jpeg)
+---
 
-## G. Démonstration
+## Bibliothèques utilisées
 
-Voir la vidéo : [Cliquez ici](media/Video_Démo.mp4)
-Voir la deuxième vidéo : [Cliquez ici](media/Video_Démo_2.mp4)
+- SPI
+- MFRC522
+- Servo
 
-## 5. Bibliothèques Arduino nécessaires
+---
 
-Installer dans l’IDE Arduino :
-- `SPI.h`
-- `MFRC522.h`
-- `Servo.h`
+## Contraintes et limites
+
+- Sensibilité du capteur ultrason aux perturbations
+- Consommation du servomoteur
+- Gestion d’un seul badge autorisé
+
+---
+
+## Améliorations possibles
+
+- Gestion de plusieurs badges
+- Ajout Bluetooth ou WiFi
+- Compteur de places disponibles
+- Historique des accès
+- Interface mobile
+
+---
+
+## Compétences mobilisées
+
+- Programmation embarquée (Arduino / C++)
+- Communication SPI (RFID)
+- Traitement de capteurs
+- Conception système
+- Analyse fonctionnelle
