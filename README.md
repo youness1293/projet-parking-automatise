@@ -58,7 +58,7 @@ Le système permet :
 
 ## Démonstration
 
-Voir la vidéo : [Démo](media/demo_sortie.mp4)
+Voir la vidéo : [Démo](media/sortie_demo.mp4)
 
 ---
 
