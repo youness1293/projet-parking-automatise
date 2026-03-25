@@ -105,6 +105,7 @@ Connecteur à gauche, du haut vers le bas :
 ## G. Démonstration
 
 Voir la vidéo : [Cliquez ici](media/Video_Démo.mp4)
+Voir la deuxième vidéo : [Cliquez ici](media/Video_Démo_2.mp4)
 
 ## 5. Bibliothèques Arduino nécessaires
 
