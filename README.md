@@ -102,6 +102,10 @@ Connecteur à gauche, du haut vers le bas :
 ![Montage](media/Img2.jpeg)
 ![Montage](media/Img7.jpeg)
 
+## G. Démonstration
+
+Voir la vidéo : [Cliquez ici](media/Video_Démo.mp4)
+
 ## 5. Bibliothèques Arduino nécessaires
 
 Installer dans l’IDE Arduino :
