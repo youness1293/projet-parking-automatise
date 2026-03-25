@@ -98,6 +98,10 @@ Connecteur à gauche, du haut vers le bas :
 - Patte + / fil rouge → Pin 4
 - Patte - / fil noir → GND
 
+### F. Images
+![Montage](Img2.jpeg)
+![Montage](Img4.jpeg)
+
 ## 5. Bibliothèques Arduino nécessaires
 
 Installer dans l’IDE Arduino :
