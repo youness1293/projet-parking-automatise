@@ -100,7 +100,7 @@ Connecteur à gauche, du haut vers le bas :
 
 ### F. Images
 ![Montage](media/systeme_en_fonctionnement.jpeg)
-![Montage](media/Img7.jpeg)
+![Montage](media/alerte_fermeture_barriere.jpeg)
 
 ## G. Démonstration
 
