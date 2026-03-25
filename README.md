@@ -99,7 +99,7 @@ Connecteur à gauche, du haut vers le bas :
 - Patte - / fil noir → GND
 
 ### F. Images
-![Montage](media/Img2.jpeg)
+![Montage](media/systeme_en_fonctionnement.jpeg)
 ![Montage](media/Img7.jpeg)
 
 ## G. Démonstration
