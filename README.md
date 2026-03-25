@@ -99,8 +99,8 @@ Connecteur à gauche, du haut vers le bas :
 - Patte - / fil noir → GND
 
 ### F. Images
-![Montage](Img2.jpeg)
-![Montage](Img4.jpeg)
+![Montage](docs/Img2.jpeg)
+![Montage](docs/Img4.jpeg)
 
 ## 5. Bibliothèques Arduino nécessaires
 
