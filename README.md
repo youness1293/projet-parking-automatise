@@ -100,7 +100,7 @@ Connecteur à gauche, du haut vers le bas :
 
 ### F. Images
 ![Montage](media/Img2.jpeg)
-![Montage](media/Img.jpeg)
+![Montage](media/Img7.jpeg)
 
 ## 5. Bibliothèques Arduino nécessaires
 
